@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bv22n1ckh0a1e"]
+
+[ext_resource type="PackedScene" uid="uid://du57mobd2hptu" path="res://abs/A_blt.tscn" id="1_066jw"]
+[ext_resource type="Script" uid="uid://cfmjpfa380yfq" path="res://actors/bill/blt_player.gd" id="2_lmoa4"]
+
+[node name="Blt1" unique_id=716062432 instance=ExtResource("1_066jw")]
+collision_mask = 3174
+script = ExtResource("2_lmoa4")

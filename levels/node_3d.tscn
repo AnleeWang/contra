@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://b4yfcch3oaq1v"]
+
+[ext_resource type="PackedScene" uid="uid://bca3i6q8vvfsw" path="res://art/arts_3d/Jupiter.glb" id="1_a202f"]
+[ext_resource type="Script" uid="uid://d2ej4q7g6tbq3" path="res://art/arts_3d/jupiter.gd" id="2_noarx"]
+
+[sub_resource type="Environment" id="Environment_a202f"]
+background_mode = 1
+
+[sub_resource type="Animation" id="Animation_a202f"]
+resource_name = "1"
+length = 25.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Jupiter:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_noarx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Jupiter:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a0tk4"]
+_data = {
+&"1": SubResource("Animation_a202f"),
+&"RESET": SubResource("Animation_noarx")
+}
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Jupiter" parent="." instance=ExtResource("1_a202f")]
+script = ExtResource("2_noarx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.973591, 0.2283, 0, -0.2283, 0.973591, 0, 0.880208, 2.55673)
+environment = SubResource("Environment_a202f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_a0tk4")
+}

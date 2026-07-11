@@ -1,0 +1,248 @@
+[gd_scene load_steps=22 format=3 uid="uid://ce0g0fxh4064o"]
+
+[ext_resource type="Script" uid="uid://bokuj6shp47kt" path="res://abs/3d/actor_3d.gd" id="1_7dnb0"]
+[ext_resource type="Script" uid="uid://b75a86abr26cj" path="res://abs/3d/a_gun_3d.gd" id="2_7dnb0"]
+
+[sub_resource type="Animation" id="Animation_k4s12"]
+resource_name = "BeHitted"
+length = 0.5
+
+[sub_resource type="Animation" id="Animation_0xrdl"]
+
+[sub_resource type="Animation" id="Animation_2jj6c"]
+resource_name = "Jump"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_8t03j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(16, 34, 72, 85)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_hg6s5"]
+resource_name = "Sd"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ai80o"]
+resource_name = "Sd_2"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [39]
+}
+
+[sub_resource type="Animation" id="Animation_7v1m2"]
+resource_name = "OnSpring"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Rect2(153, 2365, 50, 84)]
+}
+
+[sub_resource type="Animation" id="Animation_7jyx0"]
+resource_name = "Up"
+length = 0.5
+
+[sub_resource type="Animation" id="Animation_qpuh7"]
+
+[sub_resource type="Animation" id="Animation_w67ek"]
+resource_name = "Win"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Rect2(153, 2365, 50, 84)]
+}
+
+[sub_resource type="Animation" id="Animation_2ieo8"]
+resource_name = "Wk"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666669, 0.33333334, 0.46666667, 0.6333333, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ieo8"]
+_data = {
+&"BeHitted": SubResource("Animation_k4s12"),
+&"Down45": SubResource("Animation_0xrdl"),
+&"Jump": SubResource("Animation_2jj6c"),
+&"RESET": SubResource("Animation_8t03j"),
+&"Sd": SubResource("Animation_hg6s5"),
+&"Sd_2": SubResource("Animation_ai80o"),
+&"Sq": SubResource("Animation_7v1m2"),
+&"Up": SubResource("Animation_7jyx0"),
+&"Up45": SubResource("Animation_qpuh7"),
+&"Win": SubResource("Animation_w67ek"),
+&"Wk": SubResource("Animation_2ieo8")
+}
+
+[sub_resource type="SphereMesh" id="SphereMesh_ai80o"]
+radius = 0.2
+height = 0.2
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_basvh"]
+random_pitch = 1.03
+streams_count = 1
+
+[sub_resource type="CapsuleShape3D" id="1"]
+resource_local_to_scene = true
+radius = 0.28076172
+height = 1.3274425
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k4s12"]
+resource_local_to_scene = true
+radius = 0.382112
+height = 2.56877
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_axa7i"]
+random_pitch = 1.03
+streams_count = 1
+
+[sub_resource type="Gradient" id="Gradient_p2tu5"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kvc1x"]
+gradient = SubResource("Gradient_p2tu5")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0.01)
+
+[node name="Actor3d" type="CharacterBody3D"]
+collision_mask = 32
+script = ExtResource("1_7dnb0")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+cast_shadow = 0
+hframes = 8
+vframes = 8
+region_rect = Rect2(16, 34, 72, 85)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_2ieo8")
+}
+
+[node name="Gun" type="Marker3D" parent="Sprite3D"]
+script = ExtResource("2_7dnb0")
+
+[node name="CSGSphere3D" type="MeshInstance3D" parent="Sprite3D/Gun"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6687522, 0, 0)
+mesh = SubResource("SphereMesh_ai80o")
+
+[node name="ShootDelay" type="Timer" parent="Sprite3D/Gun"]
+wait_time = 0.5
+one_shot = true
+
+[node name="Snd" type="AudioStreamPlayer" parent="Sprite3D/Gun"]
+stream = SubResource("AudioStreamRandomizer_basvh")
+
+[node name="ColliShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46949595, 0)
+shape = SubResource("1")
+debug_color = Color(1.54018e-06, 0.736257, 0.857059, 0.42)
+
+[node name="Area3D" type="Area3D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 16
+
+[node name="AreaShape" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CapsuleShape3D_k4s12")
+debug_color = Color(0.940005, 0.0777895, 0.576187, 0.42)
+
+[node name="Snd" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_axa7i")
+volume_db = -6.0
+
+[node name="BlobShadow" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0123079, 0, -0.800801)
+size = Vector3(1.6, 12, 1.6)
+texture_albedo = SubResource("GradientTexture2D_kvc1x")
+albedo_mix = 0.8
+upper_fade = 3.99999
+lower_fade = 1.0
+cull_mask = 1048573
+
+[connection signal="animation_finished" from="Sprite3D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_started" from="Sprite3D/AnimationPlayer" to="." method="_on_animation_player_animation_started"]
+[connection signal="current_animation_changed" from="Sprite3D/AnimationPlayer" to="." method="_on_animation_player_current_animation_changed"]
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_area_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_body_entered"]

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bmp5coom642ae"]
+
+[ext_resource type="Script" uid="uid://2ahdm1vq53g6" path="res://explodes/die_exp.gd" id="1_561ho"]
+[ext_resource type="Texture2D" uid="uid://cmh6hgplf7qoh" path="res://art/exp2-Sheet.png" id="2_561ho"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rturt"]
+atlas = ExtResource("2_561ho")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6g7s"]
+atlas = ExtResource("2_561ho")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihnsn"]
+atlas = ExtResource("2_561ho")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ihnsn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rturt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6g7s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihnsn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rturt")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Expolde" type="Node2D" unique_id=496231986]
+script = ExtResource("1_561ho")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2030650988]
+sprite_frames = SubResource("SpriteFrames_ihnsn")
+autoplay = "default"
+frame = 3
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

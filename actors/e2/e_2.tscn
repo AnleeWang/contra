@@ -1,0 +1,244 @@
+[gd_scene format=3 uid="uid://d27igfdwfgnn"]
+
+[ext_resource type="PackedScene" uid="uid://jaovn7tnhrt3" path="res://abs/actor.tscn" id="1_o4dvq"]
+[ext_resource type="Texture2D" uid="uid://cprqsbr3jlrkk" path="res://art/e2-Sheet.png" id="2_3hm1d"]
+[ext_resource type="Script" uid="uid://jc5l32cnfhw2" path="res://actors/e2/e_2.gd" id="2_jajx4"]
+[ext_resource type="PackedScene" uid="uid://c1rhdmgq5umil" path="res://actors/e1/blt_e1.tscn" id="3_u5vf0"]
+
+[sub_resource type="Animation" id="Animation_u5vf0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_8ubd7"]
+resource_name = "die"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_6gkj6"]
+resource_name = "down_45"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_pyhxu"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_lyj3j"]
+
+[sub_resource type="Animation" id="Animation_le63c"]
+
+[sub_resource type="Animation" id="Animation_dyih0"]
+resource_name = "up_45"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_2h6ow"]
+resource_name = "walk"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13236359, 0.26906696),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6gkj6"]
+_data = {
+&"RESET": SubResource("Animation_u5vf0"),
+&"die": SubResource("Animation_8ubd7"),
+&"down_45": SubResource("Animation_6gkj6"),
+&"idle": SubResource("Animation_pyhxu"),
+&"jump": SubResource("Animation_lyj3j"),
+&"sq": SubResource("Animation_le63c"),
+&"up_45": SubResource("Animation_dyih0"),
+&"walk": SubResource("Animation_2h6ow")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b0p1d"]
+resource_local_to_scene = true
+radius = 28.0
+height = 72.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8tvs3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xicam"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rpvk7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xtvj1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_njo0j"]
+resource_local_to_scene = true
+radius = 32.0
+height = 128.0
+
+[node name="E2" unique_id=479862401 instance=ExtResource("1_o4dvq")]
+collision_layer = 2
+collision_mask = 1424
+script = ExtResource("2_jajx4")
+BLT_1 = ExtResource("3_u5vf0")
+
+[node name="AnimationPlayer" parent="." index="0" unique_id=478747962]
+libraries/ = SubResource("AnimationLibrary_6gkj6")
+
+[node name="AreaShape" parent="Area2D" parent_id_path=PackedInt32Array(610729302) index="0" unique_id=13020949]
+position = Vector2(0, -20)
+shape = SubResource("CapsuleShape2D_b0p1d")
+
+[node name="Gun_ShapeCasts" type="Node2D" parent="." index="4" unique_id=122944393]
+
+[node name="Cast_0" type="ShapeCast2D" parent="Gun_ShapeCasts" index="0" unique_id=1368607954]
+modulate = Color(1, 1, 1, 0.137255)
+position = Vector2(80, 0)
+shape = SubResource("CircleShape2D_8tvs3")
+target_position = Vector2(1504.718, 0)
+
+[node name="Cast_6" type="ShapeCast2D" parent="Gun_ShapeCasts" index="1" unique_id=857204559]
+modulate = Color(1, 1, 1, 0.137255)
+position = Vector2(-40, 0)
+shape = SubResource("CircleShape2D_8tvs3")
+target_position = Vector2(-1161.7175, 21.037079)
+
+[node name="Cast_7" type="ShapeCast2D" parent="Gun_ShapeCasts" index="2" unique_id=1454751872]
+modulate = Color(1, 1, 1, 0.137255)
+position = Vector2(-64, -32)
+shape = SubResource("CircleShape2D_xicam")
+target_position = Vector2(-1009.7176, -394.96292)
+
+[node name="Cast_1" type="ShapeCast2D" parent="Gun_ShapeCasts" index="3" unique_id=171988567]
+modulate = Color(1, 1, 1, 0.137255)
+position = Vector2(42.71759, 16.962921)
+shape = SubResource("CircleShape2D_rpvk7")
+target_position = Vector2(1125.2825, 519.0371)
+
+[node name="Cast_2" type="ShapeCast2D" parent="Gun_ShapeCasts" index="4" unique_id=2043559869]
+modulate = Color(1, 1, 1, 0.137255)
+position = Vector2(48, 48)
+shape = SubResource("CircleShape2D_xicam")
+target_position = Vector2(504, 848)
+
+[node name="Cast_3" type="ShapeCast2D" parent="Gun_ShapeCasts" index="5" unique_id=289092287]
+modulate = Color(1, 1, 1, 0.137255)
+shape = SubResource("CircleShape2D_xicam")
+target_position = Vector2(0, 1008)
+
+[node name="Cast_4" type="ShapeCast2D" parent="Gun_ShapeCasts" index="6" unique_id=803587805]
+modulate = Color(1, 1, 1, 0.137255)
+position = Vector2(-16, 56)
+shape = SubResource("CircleShape2D_xicam")
+target_position = Vector2(-657.7176, 967.7038)
+
+[node name="Cast_5" type="ShapeCast2D" parent="Gun_ShapeCasts" index="7" unique_id=74450540]
+modulate = Color(1, 1, 1, 0.137255)
+position = Vector2(-32, 16)
+shape = SubResource("CircleShape2D_xicam")
+target_position = Vector2(-897.7176, 439.70377)
+
+[node name="Cast_8" type="ShapeCast2D" parent="Gun_ShapeCasts" index="8" unique_id=750199301]
+modulate = Color(1, 1, 1, 0.137255)
+position = Vector2(-32, -48)
+shape = SubResource("CircleShape2D_xtvj1")
+target_position = Vector2(-505.7176, -706.9629)
+
+[node name="Cast_9" type="ShapeCast2D" parent="Gun_ShapeCasts" index="9" unique_id=711032700]
+modulate = Color(1, 1, 1, 0.137255)
+position = Vector2(0, -80)
+shape = SubResource("CircleShape2D_xicam")
+target_position = Vector2(0, -888)
+
+[node name="Cast_10" type="ShapeCast2D" parent="Gun_ShapeCasts" index="10" unique_id=1984873478]
+modulate = Color(1, 1, 1, 0.137255)
+position = Vector2(32, -72)
+shape = SubResource("CircleShape2D_xicam")
+target_position = Vector2(582.2824, -674.9629)
+
+[node name="Cast_11" type="ShapeCast2D" parent="Gun_ShapeCasts" index="11" unique_id=283624834]
+modulate = Color(1, 1, 1, 0.137255)
+position = Vector2(48, -40)
+shape = SubResource("CircleShape2D_xtvj1")
+target_position = Vector2(926.2824, -346.96292)
+
+[node name="Sprite2D" parent="Node2D" parent_id_path=PackedInt32Array(1909090284) index="0" unique_id=366109440]
+position = Vector2(-2.3841858e-07, -72)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("2_3hm1d")
+hframes = 5
+frame = 1
+
+[node name="ColliShape" parent="." index="6" unique_id=1278126791]
+shape = SubResource("CapsuleShape2D_njo0j")
+
+[node name="FloorDetectorLeft" parent="." index="8" unique_id=944805928]
+position = Vector2(-24, 40)
+
+[node name="FloorDetectorRight" parent="." index="9" unique_id=1422314231]
+position = Vector2(16, 40)
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenNotifier2D" parent="." index="12" unique_id=667561788]
+rect = Rect2(-32, -10, 64, 20)
+
+[connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

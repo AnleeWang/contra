@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c1rhdmgq5umil"]
+
+[ext_resource type="PackedScene" uid="uid://du57mobd2hptu" path="res://abs/A_blt.tscn" id="1_ht2id"]
+[ext_resource type="Script" uid="uid://jgw1s4pxxf6e" path="res://actors/blt_enemy.gd" id="2_4g0jr"]
+
+[node name="BltE1" unique_id=1752332274 instance=ExtResource("1_ht2id")]
+collision_mask = 3105
+script = ExtResource("2_4g0jr")
+
+[node name="Sprite2D" parent="." index="2" unique_id=1742864564]
+region_rect = Rect2(244, 184, 12, 12)

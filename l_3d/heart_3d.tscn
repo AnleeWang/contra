@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://q3m76twphcjr"]
+
+[ext_resource type="Script" uid="uid://d4ihixlxwqxvg" path="res://l_3d/heart_3d.gd" id="1_bxwtr"]
+[ext_resource type="Texture2D" uid="uid://brskrwetdv77" path="res://icon.svg" id="2_bxwtr"]
+[ext_resource type="Script" uid="uid://b75a86abr26cj" path="res://abs/3d/a_gun_3d.gd" id="3_yc1yn"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nxwpu"]
+radius = 1.577
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_h84y5"]
+random_pitch = 1.03
+streams_count = 1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1irqc"]
+
+[node name="Heart" type="Area3D"]
+collision_layer = 8
+collision_mask = 16
+script = ExtResource("1_bxwtr")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_nxwpu")
+debug_color = Color(0.9570125, 1.92523e-07, 0.53745997, 0.41960785)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+texture = ExtResource("2_bxwtr")
+
+[node name="Gun" type="Marker3D" parent="Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.16767454, 0.53292966)
+script = ExtResource("3_yc1yn")
+
+[node name="ShootDelay" type="Timer" parent="Sprite3D/Gun"]
+one_shot = true
+
+[node name="Snd" type="AudioStreamPlayer" parent="Sprite3D/Gun"]
+stream = SubResource("AudioStreamRandomizer_h84y5")
+
+[node name="Casts" type="Node3D" parent="Sprite3D"]
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="Sprite3D/Casts"]
+shape = SubResource("SphereShape3D_1irqc")
+target_position = Vector3(-4.1, 0, 10)
+
+[node name="ShapeCast3D2" type="ShapeCast3D" parent="Sprite3D/Casts"]
+shape = SubResource("SphereShape3D_1irqc")
+target_position = Vector3(-2.01, 0, 10)
+
+[node name="ShapeCast3D3" type="ShapeCast3D" parent="Sprite3D/Casts"]
+shape = SubResource("SphereShape3D_1irqc")
+target_position = Vector3(0.055, 0, 10)
+
+[node name="ShapeCast3D4" type="ShapeCast3D" parent="Sprite3D/Casts"]
+shape = SubResource("SphereShape3D_1irqc")
+target_position = Vector3(2.23, 0, 10)
+
+[node name="ShapeCast3D5" type="ShapeCast3D" parent="Sprite3D/Casts"]
+shape = SubResource("SphereShape3D_1irqc")
+target_position = Vector3(4.735, 0, 10)

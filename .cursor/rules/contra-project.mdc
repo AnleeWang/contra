@@ -1,0 +1,31 @@
+---
+description: Contra 2D 项目结构与 Cursor 协作约定
+alwaysApply: true
+---
+
+# Contra 项目（Godot 4.7）
+
+## 项目结构
+
+- `abs/` — 基类：`Actor`、`ALevel`、`AGun`、`ABltRig`
+- `actors/` — 玩家与敌人（如 `bill/`、`e1/`）
+- `levels/` — 关卡脚本与场景（如 `7.gd`、`7/boss_7/`）
+- `explodes/` — 爆炸特效（`expolde.tscn`、`die_exp.tscn`）
+- `Global` autoload — 运行时引用 `Global.level`、`Global.level.player`
+
+## 关卡模式
+
+- 关卡脚本 `extends ALevel`，玩家在 `_ready` 中赋值 `player = $Bill`
+- 靠近触发：`player.global_position.distance_to(node.global_position) <= node.trigger_radius`
+- 子系统（Boss、爪、门）用 `@export` 暴露参数，在 `.tscn` Inspector 调节
+
+## 与 Cursor 协作
+
+- 改功能前先读相关 `.gd` 和 `.tscn`，复用现有写法
+- 一次只做一个功能；涉及碰撞/动画时说明测试步骤
+- 不主动 git commit/push，除非用户明确要求
+- 场景节点布局优先在 Godot 编辑器调整；逻辑与 export 由代码负责
+
+## 输入映射
+
+- 移动：`left`/`right`/`up`/`down`；射击 `j`；跳跃 `k`

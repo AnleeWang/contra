@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://c307r4kyi7r48"]
+
+[ext_resource type="Script" uid="uid://ber8oocaerxs" path="res://levels/7/zhua_c.gd" id="1_dar16"]
+[ext_resource type="Texture2D" uid="uid://dphi18d3ifpgx" path="res://art/zhua_base.png" id="2_2228h"]
+[ext_resource type="Texture2D" uid="uid://dkeyw0yg8ocyo" path="res://art/zhua_middle.png" id="2_sj7ak"]
+[ext_resource type="Texture2D" uid="uid://cuaq7xjrp1hre" path="res://art/zhua.png" id="3_sj7ak"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvhbo"]
+resource_local_to_scene = true
+size = Vector2(52, 47)
+
+[sub_resource type="Animation" id="Animation_sj7ak"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 99)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Middle:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 28, 16)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Middle:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 56)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sj7ak"]
+_data = {
+&"RESET": SubResource("Animation_sj7ak")
+}
+
+[node name="ZhuaC" type="Node2D" unique_id=1179891913]
+script = ExtResource("1_dar16")
+move_length = 320.0
+move_time = 5.0
+cross_delay = 0.5
+
+[node name="Middle" type="Sprite2D" parent="." unique_id=1386175309]
+texture_repeat = 2
+position = Vector2(0, 56)
+texture = ExtResource("2_sj7ak")
+region_enabled = true
+region_rect = Rect2(0, 0, 28, 16)
+
+[node name="ZhuaBase" type="Sprite2D" parent="." unique_id=2046628292]
+position = Vector2(0, 24)
+texture = ExtResource("2_2228h")
+
+[node name="Zhua" type="Area2D" parent="." unique_id=1817033320]
+position = Vector2(0, 99)
+collision_layer = 8
+collision_mask = 3
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zhua" unique_id=902728152]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_wvhbo")
+debug_color = Color(0.93317264, 0.11611164, 0.5753456, 0.41960785)
+
+[node name="Zhua" type="Sprite2D" parent="Zhua" unique_id=1940317958]
+texture = ExtResource("3_sj7ak")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Zhua" unique_id=1875154346]
+libraries/ = SubResource("AnimationLibrary_sj7ak")
+
+[connection signal="body_entered" from="Zhua" to="." method="_on_zhua_body_entered"]
+[connection signal="animation_finished" from="Zhua/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

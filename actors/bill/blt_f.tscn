@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://ctjq2egx2qpxo"]
+
+[ext_resource type="Texture2D" uid="uid://wlpcd2pbfkek" path="res://art/blts-sheet.png" id="1_67qpk"]
+[ext_resource type="Script" uid="uid://dhsaf7uxyqxkx" path="res://actors/bill/blt_f.gd" id="1_nj8d7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g3g5r"]
+radius = 22.022715
+
+[node name="BltF" type="Area2D" unique_id=282646712]
+collision_layer = 128
+collision_mask = 3686
+script = ExtResource("1_nj8d7")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1134220987]
+position = Vector2(88, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=674299791]
+position = Vector2(88, 0)
+shape = SubResource("CircleShape2D_g3g5r")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=864281153]
+position = Vector2(0.3888855, 0.25)
+texture = ExtResource("1_67qpk")
+region_enabled = true
+region_rect = Rect2(176, 164, 32, 32)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

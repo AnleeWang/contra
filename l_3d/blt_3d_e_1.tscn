@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://58y5c13pqvrn"]
+
+[ext_resource type="PackedScene" uid="uid://sm5p0cjqrb2o" path="res://abs/3d/ablt_3d.tscn" id="1_56lrp"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ch8nw"]
+resource_local_to_scene = true
+radius = 0.0536674
+
+[node name="Blt3D_E1" instance=ExtResource("1_56lrp")]
+collision_mask = 36
+
+[node name="Sprite3D" parent="." index="0"]
+region_rect = Rect2(244, 184, 12, 12)
+
+[node name="CollisionShape3D" parent="." index="1"]
+shape = SubResource("SphereShape3D_ch8nw")

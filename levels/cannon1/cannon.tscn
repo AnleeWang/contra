@@ -1,0 +1,274 @@
+[gd_scene format=3 uid="uid://dmuorry38gywi"]
+
+[ext_resource type="Script" uid="uid://bqejqlyclfcn8" path="res://levels/cannon1/cannon.gd" id="1_ggj38"]
+[ext_resource type="Texture2D" uid="uid://b0jt2c11yyh5l" path="res://art/e3_canon_base.webp" id="2_wp2pm"]
+[ext_resource type="Texture2D" uid="uid://cq7mh1eofv4aj" path="res://art/e3_canon-Sheet.png" id="3_x06s5"]
+[ext_resource type="PackedScene" uid="uid://dr6fphiyyaqn" path="res://abs/a_gun.tscn" id="5_aibrc"]
+[ext_resource type="Texture2D" uid="uid://bcebt8fvvrt8b" path="res://art/e3_canon_head.webp" id="5_bvwlm"]
+[ext_resource type="Script" uid="uid://d4cpkftxncc8r" path="res://levels/cannon1/gun.gd" id="6_0ke14"]
+
+[sub_resource type="Animation" id="Animation_bvwlm"]
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("E3CanonHead:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_eeof4"]
+resource_name = "Hide"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(4, 0), Vector2i(3, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_m8dhx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(3, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_deh68"]
+resource_name = "sd"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.46666667, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:monitorable")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_e8gen"]
+resource_name = "ShowUp"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(3, 0), Vector2i(4, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("E3CanonHead:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4tppo"]
+_data = {
+&"Die": SubResource("Animation_bvwlm"),
+&"Hide": SubResource("Animation_eeof4"),
+&"RESET": SubResource("Animation_m8dhx"),
+&"Sd": SubResource("Animation_deh68"),
+&"ShowUp": SubResource("Animation_e8gen")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f087n"]
+size = Vector2(76, 66)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8tvs3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xtvj1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xicam"]
+radius = 50.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rpvk7"]
+
+[node name="Cannon1" type="Area2D" unique_id=1095679660]
+collision_layer = 2
+collision_mask = 136
+monitorable = false
+script = ExtResource("1_ggj38")
+
+[node name="Base" type="Sprite2D" parent="." unique_id=1370149684]
+texture = ExtResource("2_wp2pm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1935206655]
+visible = false
+texture = ExtResource("3_x06s5")
+hframes = 5
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=160151864]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_4tppo")
+
+[node name="E3CanonHead" type="Sprite2D" parent="." unique_id=241406375]
+visible = false
+texture = ExtResource("5_bvwlm")
+
+[node name="Gun" parent="E3CanonHead" unique_id=1627923864 instance=ExtResource("5_aibrc")]
+position = Vector2(78.581116, 2.5459442)
+script = ExtResource("6_0ke14")
+
+[node name="ColliShape" type="CollisionShape2D" parent="." unique_id=2036655469]
+shape = SubResource("RectangleShape2D_f087n")
+debug_color = Color(0.90100247, 0.22009116, 0.55766785, 0.41960785)
+
+[node name="PlatformDetector" type="RayCast2D" parent="." unique_id=1588934644]
+collision_mask = 1056
+
+[node name="FloorDetectorLeft" type="RayCast2D" parent="." unique_id=1623243044]
+position = Vector2(-30, 0)
+target_position = Vector2(-3, 180)
+collision_mask = 1056
+
+[node name="FloorDetectorRight" type="RayCast2D" parent="." unique_id=663581320]
+position = Vector2(30, 0)
+collision_mask = 1056
+
+[node name="TimerAI" type="Timer" parent="." unique_id=185885378]
+
+[node name="Gun_ShapeCasts" type="Node2D" parent="." unique_id=1807644965]
+
+[node name="Cast_fd" type="ShapeCast2D" parent="Gun_ShapeCasts" unique_id=371793286]
+modulate = Color(1, 1, 1, 0.137255)
+shape = SubResource("CircleShape2D_8tvs3")
+target_position = Vector2(-1326.67, 0)
+
+[node name="Cast_up_1" type="ShapeCast2D" parent="Gun_ShapeCasts" unique_id=1064830751]
+modulate = Color(1, 1, 1, 0.137255)
+position = Vector2(0, -20)
+shape = SubResource("CircleShape2D_xtvj1")
+target_position = Vector2(-1300, -422.5)
+
+[node name="Cast_up_2" type="ShapeCast2D" parent="Gun_ShapeCasts" unique_id=957840757]
+modulate = Color(1, 1, 1, 0.137255)
+shape = SubResource("CircleShape2D_xicam")
+target_position = Vector2(-1025, -865.833)
+
+[node name="Cast_up_3" type="ShapeCast2D" parent="Gun_ShapeCasts" unique_id=1886728146]
+modulate = Color(1, 1, 1, 0.137255)
+shape = SubResource("CircleShape2D_xicam")
+target_position = Vector2(-1, -1120)
+
+[node name="Cast_dw_1" type="ShapeCast2D" parent="Gun_ShapeCasts" unique_id=67589088]
+modulate = Color(1, 1, 1, 0.137255)
+position = Vector2(0, 46.6667)
+shape = SubResource("CircleShape2D_rpvk7")
+target_position = Vector2(-1270, 425.833)
+
+[node name="Cast_dw_2" type="ShapeCast2D" parent="Gun_ShapeCasts" unique_id=513909130]
+modulate = Color(1, 1, 1, 0.137255)
+position = Vector2(0, 53.3333)
+shape = SubResource("CircleShape2D_xicam")
+target_position = Vector2(-1044.17, 1007.5)
+
+[node name="Cast_dw_3" type="ShapeCast2D" parent="Gun_ShapeCasts" unique_id=85456914]
+modulate = Color(1, 1, 1, 0.137255)
+position = Vector2(0, 53.3333)
+shape = SubResource("CircleShape2D_xicam")
+target_position = Vector2(-16, 1268.6667)
+
+[node name="Cast_R" type="ShapeCast2D" parent="Gun_ShapeCasts" unique_id=298564156]
+modulate = Color(1, 1, 1, 0.137255)
+shape = SubResource("CircleShape2D_8tvs3")
+target_position = Vector2(1084, 5)
+
+[node name="Cast_up_4" type="ShapeCast2D" parent="Gun_ShapeCasts" unique_id=1295205643]
+modulate = Color(1, 1, 1, 0.137255)
+position = Vector2(0, -20)
+shape = SubResource("CircleShape2D_xtvj1")
+target_position = Vector2(1035, -434)
+
+[node name="Cast_up_5" type="ShapeCast2D" parent="Gun_ShapeCasts" unique_id=2015832715]
+modulate = Color(1, 1, 1, 0.137255)
+shape = SubResource("CircleShape2D_xicam")
+target_position = Vector2(670, -888)
+
+[node name="Cast_dw_4" type="ShapeCast2D" parent="Gun_ShapeCasts" unique_id=498501593]
+modulate = Color(1, 1, 1, 0.137255)
+position = Vector2(0, 46.6667)
+shape = SubResource("CircleShape2D_rpvk7")
+target_position = Vector2(1069, 427.3333)
+
+[node name="Cast_dw_5" type="ShapeCast2D" parent="Gun_ShapeCasts" unique_id=1818833432]
+modulate = Color(1, 1, 1, 0.137255)
+position = Vector2(0, 53.3333)
+shape = SubResource("CircleShape2D_xicam")
+target_position = Vector2(670, 928.6667)
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=1527671558]
+
+[connection signal="animation_finished" from="Sprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="TimerAI" to="." method="_on_timer_ai_timeout"]

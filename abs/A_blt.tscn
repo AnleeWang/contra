@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://du57mobd2hptu"]
+
+[ext_resource type="Script" uid="uid://b4tpyqqc54hu4" path="res://abs/a_blt.gd" id="1_s3u7u"]
+[ext_resource type="Texture2D" uid="uid://wlpcd2pbfkek" path="res://art/blts-sheet.png" id="2_s3u7u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87xfv"]
+size = Vector2(8, 8)
+
+[node name="Ablt" type="Area2D" unique_id=69325896]
+collision_layer = 128
+collision_mask = 544
+script = ExtResource("1_s3u7u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2069242654]
+shape = SubResource("RectangleShape2D_87xfv")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1211668627]
+rect = Rect2(-6, -6, 12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1742864564]
+texture = ExtResource("2_s3u7u")
+region_enabled = true
+region_rect = Rect2(220, 184, 12, 12)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

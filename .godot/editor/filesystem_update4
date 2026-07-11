@@ -1,0 +1,12 @@
+res://abs/actor.gd
+res://actors/e1/e_1.gd
+res://actors/e1/e_1.tscn
+res://actors/bill/bill.gd
+res://actors/bill/bill.tscn
+res://levels/7.tscn
+res://levels/7.gd
+res://levels/7/boss_7/boss_7.gd
+res://explodes/expolde.tscn
+res://animations/anim_7.tscn
+res://animations/base_anim_1.gd
+res://abs/a_gun.gd

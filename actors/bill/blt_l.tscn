@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cf5bxm001qyo7"]
+
+[ext_resource type="PackedScene" uid="uid://du57mobd2hptu" path="res://abs/A_blt.tscn" id="1_u3mvk"]
+[ext_resource type="Script" uid="uid://l8hyhs2wi281" path="res://actors/bill/blt_l.gd" id="2_ftbiv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u3mvk"]
+size = Vector2(46, 16)
+
+[node name="Blt" unique_id=669137779 instance=ExtResource("1_u3mvk")]
+collision_mask = 3622
+script = ExtResource("2_ftbiv")
+speed = 700
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=2069242654]
+shape = SubResource("RectangleShape2D_u3mvk")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="1" unique_id=1211668627]
+rect = Rect2(-2.5454545, -0.4545455, 3, 0.909091)
+
+[node name="Sprite2D" parent="." index="2" unique_id=1742864564]
+region_rect = Rect2(104, 172, 64, 24)

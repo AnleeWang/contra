@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://28g3sme5mkae"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8tvs3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xtvj1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xicam"]
+radius = 50.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rpvk7"]
+
+[node name="Gun_ShapeCasts" type="Node2D"]
+
+[node name="Cast_fd" type="ShapeCast2D" parent="."]
+modulate = Color(1, 1, 1, 0.137255)
+shape = SubResource("CircleShape2D_8tvs3")
+target_position = Vector2(-1326.67, 0)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Cast_up_1" type="ShapeCast2D" parent="."]
+modulate = Color(1, 1, 1, 0.137255)
+position = Vector2(0, -20)
+shape = SubResource("CircleShape2D_xtvj1")
+target_position = Vector2(-1300, -422.5)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Cast_up_2" type="ShapeCast2D" parent="."]
+modulate = Color(1, 1, 1, 0.137255)
+shape = SubResource("CircleShape2D_xicam")
+target_position = Vector2(-1025, -865.833)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Cast_up_3" type="ShapeCast2D" parent="."]
+modulate = Color(1, 1, 1, 0.137255)
+shape = SubResource("CircleShape2D_xicam")
+target_position = Vector2(-226.667, -1110)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Cast_dw_1" type="ShapeCast2D" parent="."]
+modulate = Color(1, 1, 1, 0.137255)
+position = Vector2(0, 46.6667)
+shape = SubResource("CircleShape2D_rpvk7")
+target_position = Vector2(-1270, 425.833)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Cast_dw_2" type="ShapeCast2D" parent="."]
+modulate = Color(1, 1, 1, 0.137255)
+position = Vector2(0, 53.3333)
+shape = SubResource("CircleShape2D_xicam")
+target_position = Vector2(-1044.17, 1007.5)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Cast_dw_3" type="ShapeCast2D" parent="."]
+modulate = Color(1, 1, 1, 0.137255)
+position = Vector2(0, 53.3333)
+shape = SubResource("CircleShape2D_xicam")
+target_position = Vector2(-360.833, 1259.17)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false

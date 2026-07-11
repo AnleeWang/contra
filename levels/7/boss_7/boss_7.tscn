@@ -1,0 +1,221 @@
+[gd_scene format=3 uid="uid://7qi6knybat25"]
+
+[ext_resource type="Texture2D" uid="uid://rifnae6qiosr" path="res://art/boss7_base.webp" id="1_ttrvs"]
+[ext_resource type="Texture2D" uid="uid://dx8kcp7lbhjlu" path="res://art/boss7_heart1.png" id="2_ny16c"]
+[ext_resource type="Texture2D" uid="uid://crdcltgq3f52q" path="res://art/boss7_wall_outside.webp" id="2_reucr"]
+[ext_resource type="Texture2D" uid="uid://c28gktowbuptl" path="res://art/boss7_heart2.png" id="3_8e473"]
+[ext_resource type="Texture2D" uid="uid://ng887jhn04r5" path="res://art/boss7_heart3.png" id="4_7fi40"]
+[ext_resource type="Texture2D" uid="uid://cii1wo3pqcoyu" path="res://art/boss7_door3.png" id="6_fxchw"]
+[ext_resource type="Texture2D" uid="uid://c0vjajer7hobh" path="res://art/boss7_door2.png" id="7_0r80b"]
+[ext_resource type="Texture2D" uid="uid://fteveg8cbokp" path="res://art/boss7_door1.png" id="8_sjn0s"]
+[ext_resource type="Texture2D" uid="uid://bqr587a55q8a7" path="res://art/boss7_door4.png" id="9_0r80b"]
+[ext_resource type="Script" uid="uid://c8k2m5n7qaq1r" path="res://levels/7/boss_7/boss_7.gd" id="10_boss7"]
+[ext_resource type="Texture2D" uid="uid://doelcevlhjav6" path="res://art/boss7_cannon_base.png" id="11_sjn6q"]
+[ext_resource type="Texture2D" uid="uid://bblbbfirp08cs" path="res://art/boss7_cannon2.png" id="12_jmomm"]
+[ext_resource type="Texture2D" uid="uid://codexhx82sm4i" path="res://art/boss7_cannon1.png" id="13_pcgms"]
+[ext_resource type="Texture2D" uid="uid://bhg7wsw8l3oss" path="res://art/boss7_cannon4.png" id="14_w7qxv"]
+[ext_resource type="Texture2D" uid="uid://0h17ly0arnmu" path="res://art/boss7_cannon3.png" id="15_kbede"]
+[ext_resource type="Script" uid="uid://b7k3nan2p4q8r" path="res://levels/7/boss_7/boss7_cannon.gd" id="16_cannon"]
+[ext_resource type="Script" uid="uid://dak4m8n3p5q7s" path="res://levels/7/boss_7/boss7_heart.gd" id="17_heart"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wvhbo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ny16c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8e473")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7fi40")
+}],
+"loop": 2,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvhbo"]
+size = Vector2(88, 86)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ifow5"]
+size = Vector2(48, 272)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ifow5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_fxchw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0r80b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_sjn0s")
+}],
+"loop": 0,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_0r80b")
+}],
+"loop": 1,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_sjn0s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0r80b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fxchw")
+}],
+"loop": 0,
+"name": &"open",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_abi3o"]
+size = Vector2(260.41083, 432.1792)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ibjym"]
+size = Vector2(63.341797, 54)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_abi3o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_jmomm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_pcgms")
+}],
+"loop": 0,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_w7qxv")
+}],
+"loop": 1,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 4.3,
+"texture": ExtResource("12_jmomm")
+}, {
+"duration": 2.0,
+"texture": ExtResource("15_kbede")
+}],
+"loop": 0,
+"name": &"open",
+"speed": 2.0
+}]
+
+[node name="Boss7" type="Node2D" unique_id=2130030909]
+script = ExtResource("10_boss7")
+spawn_x_gap = 2.0
+cannon_blt_angle = -95.0
+cannon_blt_speed = 1200.0
+
+[node name="Boss7Base" type="Sprite2D" parent="." unique_id=2021374145]
+texture = ExtResource("1_ttrvs")
+offset = Vector2(0, -337.3)
+
+[node name="Heart" type="Area2D" parent="Boss7Base" unique_id=1574473084]
+position = Vector2(121, -226)
+collision_layer = 2
+script = ExtResource("17_heart")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Boss7Base/Heart" unique_id=322386349]
+sprite_frames = SubResource("SpriteFrames_wvhbo")
+autoplay = "default"
+frame_progress = 0.72189146
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss7Base/Heart" unique_id=1616761371]
+shape = SubResource("RectangleShape2D_wvhbo")
+debug_color = Color(0.93649596, 0.14333051, 0.5231542, 0.41960785)
+
+[node name="Boss7WallOutside" type="Sprite2D" parent="." unique_id=124847186]
+z_index = 10
+position = Vector2(256, -224)
+texture = ExtResource("2_reucr")
+
+[node name="Door" type="StaticBody2D" parent="." unique_id=1728106550]
+position = Vector2(120, -136)
+collision_layer = 256
+collision_mask = 193
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=1730964825]
+position = Vector2(-48, 0)
+shape = SubResource("RectangleShape2D_ifow5")
+
+[node name="DoorAnim" type="AnimatedSprite2D" parent="Door" unique_id=374991684]
+sprite_frames = SubResource("SpriteFrames_ifow5")
+animation = &"close"
+frame = 2
+frame_progress = 1.0
+
+[node name="E1Spawn" type="Marker2D" parent="." unique_id=-1447773646]
+position = Vector2(122, -100)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=36092780]
+position = Vector2(108.58917, -498.0896)
+collision_layer = 16
+collision_mask = 67
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=91371826]
+position = Vector2(72.205414, 0)
+shape = SubResource("RectangleShape2D_abi3o")
+
+[node name="Cannon1" type="Area2D" parent="." unique_id=1525404341]
+unique_name_in_owner = true
+position = Vector2(-320, 106)
+collision_layer = 2
+script = ExtResource("16_cannon")
+metadata/_edit_group_ = true
+
+[node name="Boss7CannonBase" type="Sprite2D" parent="Cannon1" unique_id=620973255]
+texture = ExtResource("11_sjn6q")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cannon1" unique_id=1417948985]
+position = Vector2(0, -2.2554932)
+shape = SubResource("RectangleShape2D_ibjym")
+debug_color = Color(0.9282029, 0.16016695, 0.5399095, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Cannon1" unique_id=1285932002]
+position = Vector2(0, -2)
+sprite_frames = SubResource("SpriteFrames_abi3o")
+animation = &"open"
+
+[node name="Cannon2" type="Area2D" parent="." unique_id=1783185553]
+unique_name_in_owner = true
+position = Vector2(-32, 106)
+collision_layer = 2
+script = ExtResource("16_cannon")
+metadata/_edit_group_ = true
+
+[node name="Boss7CannonBase" type="Sprite2D" parent="Cannon2" unique_id=479187316]
+texture = ExtResource("11_sjn6q")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cannon2" unique_id=352700433]
+position = Vector2(0, -2.2554932)
+shape = SubResource("RectangleShape2D_ibjym")
+debug_color = Color(0.9282029, 0.16016695, 0.5399095, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Cannon2" unique_id=540597412]
+position = Vector2(0, -2)
+sprite_frames = SubResource("SpriteFrames_abi3o")
+animation = &"open"

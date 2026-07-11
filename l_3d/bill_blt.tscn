@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://wntpwj4hnuj"]
+
+[ext_resource type="PackedScene" uid="uid://sm5p0cjqrb2o" path="res://abs/3d/ablt_3d.tscn" id="1_7fbwf"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1ibmq"]
+resource_local_to_scene = true
+radius = 0.0536674
+
+[node name="BillBlt" instance=ExtResource("1_7fbwf")]
+collision_mask = 40
+
+[node name="CollisionShape3D" parent="." index="1"]
+shape = SubResource("SphereShape3D_1ibmq")

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://sm5p0cjqrb2o"]
+
+[ext_resource type="Script" uid="uid://bn06e2fch6t41" path="res://abs/3d/ablt_3d.gd" id="1_4uokq"]
+[ext_resource type="Texture2D" uid="uid://wlpcd2pbfkek" path="res://art/blts-sheet.png" id="2_ahpb2"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yrjhm"]
+resource_local_to_scene = true
+radius = 0.0536674
+
+[node name="Ablt3D" type="Area3D"]
+collision_layer = 16
+collision_mask = 32
+script = ExtResource("1_4uokq")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+pixel_size = 0.001
+billboard = 1
+fixed_size = true
+texture = ExtResource("2_ahpb2")
+region_enabled = true
+region_rect = Rect2(220, 184, 12, 12)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_yrjhm")
+debug_color = Color(0.929418, 0.132021, 0.57205, 0.42)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+aabb = AABB(-0.0840199, -0.103684, -0.0976939, 0.16804, 0.207368, 0.195388)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

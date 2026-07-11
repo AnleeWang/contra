@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://d0v8m6jgyibvk"]
+
+[ext_resource type="Script" uid="uid://blirotoaxodc5" path="res://ui/menu_start.gd" id="1_5xm2l"]
+
+[node name="MenuStart" type="Control" unique_id=627173565]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5xm2l")
+
+[node name="Label" type="Label" parent="." unique_id=209737011]
+layout_mode = 0
+offset_left = 422.0
+offset_top = 186.0
+offset_right = 687.0
+offset_bottom = 235.0
+text = "contra
+"
+
+[node name="Button" type="Button" parent="." unique_id=461469543]
+layout_mode = 0
+offset_left = 436.0
+offset_top = 347.0
+offset_right = 516.0
+offset_bottom = 393.0
+text = "start"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

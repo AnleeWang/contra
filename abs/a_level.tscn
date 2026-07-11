@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://c2assdaixhi0l"]
+
+[ext_resource type="Script" uid="uid://cgkfergdvjyi1" path="res://abs/a_level.gd" id="1_fj5w6"]
+[ext_resource type="PackedScene" uid="uid://c4s58fhqvxd7j" path="res://ui/menu_in_game.tscn" id="2_ennoi"]
+
+[sub_resource type="Gradient" id="Gradient_8c84e"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qiop2"]
+gradient = SubResource("Gradient_8c84e")
+width = 1600
+height = 900
+fill_from = Vector2(1, 0.024024025)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="TileSet" id="TileSet_bdbr5"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 16
+physics_layer_0/collision_mask = 67
+
+[sub_resource type="Gradient" id="Gradient_h5oik"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.34901962, 0.59607846, 0.25490198, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_micnw"]
+gradient = SubResource("Gradient_h5oik")
+
+[sub_resource type="Animation" id="Animation_h5oik"]
+resource_name = "new_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_micnw"]
+_data = {
+&"new_animation": SubResource("Animation_h5oik")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jko2d"]
+resource_local_to_scene = true
+size = Vector2(80, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvhbo"]
+size = Vector2(128, 44)
+
+[node name="ALevel" type="Node2D" unique_id=1773011275]
+script = ExtResource("1_fj5w6")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1720196504]
+
+[node name="Bg" type="Sprite2D" parent="ParallaxBackground" unique_id=775776325]
+texture = SubResource("GradientTexture2D_qiop2")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2004985814]
+tile_set = SubResource("TileSet_bdbr5")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=375440409]
+limit_left = 0
+limit_top = 0
+limit_bottom = 900
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=152025465]
+
+[node name="Snd" type="AudioStreamPlayer" parent="." unique_id=221993988]
+
+[node name="RebirthPos" type="Node2D" parent="." unique_id=2105297651]
+metadata/_edit_lock_ = true
+
+[node name="1" type="Sprite2D" parent="RebirthPos" unique_id=787890543]
+position = Vector2(449, 564)
+texture = SubResource("GradientTexture2D_micnw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1458129486]
+libraries/ = SubResource("AnimationLibrary_micnw")
+
+[node name="DoorExit" type="Area2D" parent="." unique_id=182149686]
+position = Vector2(1954, 551)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorExit" unique_id=885061637]
+shape = SubResource("RectangleShape2D_jko2d")
+debug_color = Color(0.019607844, 0.827451, 0, 0.41960785)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=825932847]
+process_mode = 3
+
+[node name="MenuInGame" parent="UI" unique_id=522807668 instance=ExtResource("2_ennoi")]
+theme = null
+
+[node name="Blk" type="StaticBody2D" parent="." unique_id=1311200683]
+position = Vector2(137, 756)
+collision_layer = 16
+collision_mask = 67
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blk" unique_id=1498586212]
+shape = SubResource("RectangleShape2D_wvhbo")
+
+[connection signal="playerDied" from="." to="." method="_on_player_died"]
+[connection signal="body_entered" from="DoorExit" to="." method="_on_door_exit_body_entered"]

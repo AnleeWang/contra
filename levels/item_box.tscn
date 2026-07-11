@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://c4s0x0u8lwbr2"]
+
+[ext_resource type="Script" uid="uid://bikcrfsb2x2u7" path="res://levels/item_box.gd" id="1_we6rh"]
+[ext_resource type="Texture2D" uid="uid://ci7s2ku6mnmvw" path="res://art/item_box_bg.png" id="1_xcilt"]
+[ext_resource type="Texture2D" uid="uid://bll561ipv5mei" path="res://art/item_box_1.png" id="2_vrybs"]
+[ext_resource type="Texture2D" uid="uid://m7hxcm31ycjq" path="res://art/item_box_2.png" id="3_x63ff"]
+[ext_resource type="Texture2D" uid="uid://dmbjlmgn7icap" path="res://art/item_box_top1.png" id="4_yyya1"]
+[ext_resource type="Texture2D" uid="uid://cs2cyvtgkgps4" path="res://art/item_box_top2.png" id="5_we6rh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yyya1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vrybs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_x63ff")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7mrxt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_we6rh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yyya1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yyya1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yyya1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yyya1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yyya1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yyya1")
+}],
+"loop": 0,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_yyya1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_we6rh")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yyya1"]
+size = Vector2(64, 52)
+
+[node name="ItemBox" type="Area2D" unique_id=814606276]
+collision_layer = 64
+collision_mask = 128
+script = ExtResource("1_we6rh")
+
+[node name="ItemBoxBg" type="Sprite2D" parent="." unique_id=1363026604]
+texture = ExtResource("1_xcilt")
+
+[node name="Icon" type="AnimatedSprite2D" parent="ItemBoxBg" unique_id=2111139654]
+sprite_frames = SubResource("SpriteFrames_yyya1")
+autoplay = "default"
+frame_progress = 0.06630364
+
+[node name="sheild" type="AnimatedSprite2D" parent="ItemBoxBg" unique_id=184470472]
+sprite_frames = SubResource("SpriteFrames_7mrxt")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1862863572]
+shape = SubResource("RectangleShape2D_yyya1")
+debug_color = Color(0.90107644, 0.24280408, 0.49984026, 0.41960785)

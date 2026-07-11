@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://h2jd5hqeyb64"]
+
+[ext_resource type="Script" uid="uid://ck1tt8foum25y" path="res://ui/menu_over.gd" id="1_pl6jt"]
+
+[node name="MenuOver" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pl6jt")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 618.0
+offset_top = 114.0
+offset_right = 715.0
+offset_bottom = 147.0
+text = "game over"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 617.0
+offset_top = 419.0
+offset_right = 729.0
+offset_bottom = 427.0
+text = "restart"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

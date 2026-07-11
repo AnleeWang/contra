@@ -1,0 +1,184 @@
+[gd_scene format=3 uid="uid://ctvt77tq6g3ia"]
+
+[ext_resource type="PackedScene" uid="uid://ce0g0fxh4064o" path="res://abs/3d/actor3d.tscn" id="1_okhxn"]
+[ext_resource type="Texture2D" uid="uid://cj6p2rac88dsx" path="res://art/l-2_e1-Sheet.png" id="2_boif7"]
+[ext_resource type="Script" uid="uid://oko7gs0gdgsk" path="res://l_3d/e_3d_1.gd" id="2_egbis"]
+
+[sub_resource type="Animation" id="Animation_egbis"]
+resource_name = "BeHitted"
+length = 0.5
+
+[sub_resource type="Animation" id="Animation_dhkf3"]
+
+[sub_resource type="Animation" id="Animation_lnd40"]
+resource_name = "Jump"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_qmjmv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(16, 34, 72, 85)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_0v47w"]
+resource_name = "Sd"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_46bcn"]
+resource_name = "Sd_2"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [39]
+}
+
+[sub_resource type="Animation" id="Animation_s1g2c"]
+resource_name = "OnSpring"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Rect2(153, 2365, 50, 84)]
+}
+
+[sub_resource type="Animation" id="Animation_xsby1"]
+resource_name = "Up"
+length = 0.5
+
+[sub_resource type="Animation" id="Animation_2u7c2"]
+
+[sub_resource type="Animation" id="Animation_2b6cm"]
+resource_name = "Win"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Rect2(153, 2365, 50, 84)]
+}
+
+[sub_resource type="Animation" id="Animation_ysw4o"]
+resource_name = "Wk"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666669, 0.33333334, 0.46666667, 0.6333333, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oyrub"]
+_data = {
+&"BeHitted": SubResource("Animation_egbis"),
+&"Down45": SubResource("Animation_dhkf3"),
+&"Jump": SubResource("Animation_lnd40"),
+&"RESET": SubResource("Animation_qmjmv"),
+&"Sd": SubResource("Animation_0v47w"),
+&"Sd_2": SubResource("Animation_46bcn"),
+&"Sq": SubResource("Animation_s1g2c"),
+&"Up": SubResource("Animation_xsby1"),
+&"Up45": SubResource("Animation_2u7c2"),
+&"Win": SubResource("Animation_2b6cm"),
+&"Wk": SubResource("Animation_ysw4o")
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_boif7"]
+resource_local_to_scene = true
+radius = 0.16992188
+height = 0.79458064
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_egbis"]
+resource_local_to_scene = true
+radius = 0.382112
+height = 2.56877
+
+[node name="E1" instance=ExtResource("1_okhxn")]
+collision_layer = 2
+script = ExtResource("2_egbis")
+
+[node name="Sprite3D" parent="." index="0"]
+texture = ExtResource("2_boif7")
+vframes = 2
+
+[node name="AnimationPlayer" parent="Sprite3D" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_oyrub")
+}
+
+[node name="ColliShape" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.20306501, 0)
+shape = SubResource("CapsuleShape3D_boif7")
+
+[node name="AreaShape" parent="Area3D" index="0"]
+shape = SubResource("CapsuleShape3D_egbis")

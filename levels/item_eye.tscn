@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dgu7nqba8185a"]
+
+[ext_resource type="Script" uid="uid://dymx772uvunau" path="res://levels/item_eye.gd" id="1_h2lke"]
+[ext_resource type="Texture2D" uid="uid://cdkfi2u0v61nj" path="res://art/eye.png" id="2_5xvbw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2lke"]
+size = Vector2(58, 28)
+
+[node name="ItemEye" type="Area2D" unique_id=1263678936]
+collision_layer = 64
+collision_mask = 128
+script = ExtResource("1_h2lke")
+amplitude = 100.0
+speed = 8.0
+speedX = -360
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=692680357]
+shape = SubResource("RectangleShape2D_h2lke")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1606146829]
+texture = ExtResource("2_5xvbw")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=246706265]
+position = Vector2(-56, 0)
+
+[node name="VisibleRight" type="VisibleOnScreenNotifier2D" parent="." unique_id=1020956050]
+position = Vector2(56, 0)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="screen_exited" from="VisibleRight" to="." method="_on_visible_right_screen_exited"]

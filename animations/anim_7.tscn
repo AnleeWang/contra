@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dvf8r1a188jm1"]
+
+[ext_resource type="PackedScene" uid="uid://dwrv1ius3nvdr" path="res://animations/base_anim_1.tscn" id="1_5080w"]
+[ext_resource type="FontFile" uid="uid://bnjd6qbimsx14" path="res://ui/fonts/IPix.ttf" id="2_t0i1y"]
+
+[sub_resource type="Theme" id="Theme_q2d4e"]
+default_font = ExtResource("2_t0i1y")
+default_font_size = 28
+
+[node name="Anim_7" unique_id=1704905936 instance=ExtResource("1_5080w")]
+
+[node name="Control" type="Control" parent="." index="10" unique_id=1500268675]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_q2d4e")
+
+[node name="Label" type="Label" parent="Control" index="0" unique_id=2092659204]
+layout_mode = 0
+offset_left = 94.0
+offset_top = -72.0
+offset_right = 262.0
+offset_bottom = -33.0
+text = "恭喜你"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" index="1" unique_id=1583889110]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 839.0
+offset_top = 219.0
+offset_right = 1428.0
+offset_bottom = 784.0
+grow_horizontal = 0
+theme_override_constants/line_separation = 22
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 55
+theme_override_font_sizes/bold_font_size = 0
+text = "第七关已过，牛逼！
+"
+scroll_active = false

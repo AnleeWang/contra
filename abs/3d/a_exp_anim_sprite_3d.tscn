@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://balmhfasjump"]
+
+[ext_resource type="Script" uid="uid://i2jjiselufta" path="res://abs/3d/a_exp_anim_sprite_3d.gd" id="1_76x87"]
+[ext_resource type="Texture2D" uid="uid://cmh6hgplf7qoh" path="res://art/exp2-Sheet.png" id="1_aqcvi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehdka"]
+atlas = ExtResource("1_aqcvi")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7rki"]
+atlas = ExtResource("1_aqcvi")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tde0t"]
+atlas = ExtResource("1_aqcvi")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aqcvi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehdka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7rki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tde0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehdka")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AExpAnimSprite3D" type="AnimatedSprite3D"]
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_aqcvi")
+autoplay = "default"
+frame = 3
+frame_progress = 1.0
+script = ExtResource("1_76x87")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

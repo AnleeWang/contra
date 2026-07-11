@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://byflcmiqrfict"]
+
+[ext_resource type="Script" uid="uid://dkc3yiq0x1c33" path="res://levels/7/nail_long.gd" id="1_mpjfm"]
+[ext_resource type="Texture2D" uid="uid://b25cr536obsra" path="res://art/nail_dead.png" id="2_yowhy"]
+[ext_resource type="Texture2D" uid="uid://dvkvwc53aie1e" path="res://art/nail_dead_up.png" id="3_css10"]
+[ext_resource type="Texture2D" uid="uid://2sen2evfmybb" path="res://art/nail_long_b.webp" id="4_mpjfm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvhbo"]
+resource_local_to_scene = true
+size = Vector2(44, 542.5)
+
+[sub_resource type="Animation" id="Animation_8o73h"]
+resource_name = "1"
+length = 0.43333334
+
+[sub_resource type="Animation" id="Animation_wejjf"]
+length = 0.1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2g3bs"]
+_data = {
+&"1": SubResource("Animation_8o73h"),
+&"RESET": SubResource("Animation_wejjf")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hydhs"]
+resource_local_to_scene = true
+size = Vector2(52, 373)
+
+[node name="NailBlkLongA" type="AnimatableBody2D" unique_id=1471556202]
+collision_layer = 48
+collision_mask = 207
+script = ExtResource("1_mpjfm")
+explode_interval = 0.05
+
+[node name="NailDead" type="Sprite2D" parent="." unique_id=1810125687]
+visible = false
+position = Vector2(8, -22)
+texture = ExtResource("2_yowhy")
+
+[node name="NailDead2" type="Sprite2D" parent="." unique_id=57268424]
+visible = false
+position = Vector2(7, -322)
+texture = ExtResource("3_css10")
+
+[node name="ExpMark1" type="Marker2D" parent="." unique_id=513758852]
+position = Vector2(8, -320)
+
+[node name="ExpMark2" type="Marker2D" parent="." unique_id=833333555]
+position = Vector2(8, -170)
+
+[node name="ExpMark3" type="Marker2D" parent="." unique_id=80693150]
+position = Vector2(8, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2032484102]
+position = Vector2(34, -271.75)
+shape = SubResource("RectangleShape2D_wvhbo")
+
+[node name="NailBlk" type="Sprite2D" parent="." unique_id=117755122]
+texture = ExtResource("4_mpjfm")
+offset = Vector2(0, -207.48)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2002763307]
+libraries/ = SubResource("AnimationLibrary_2g3bs")
+autoplay = &"RESET"
+
+[node name="Area2DAtt" type="Area2D" parent="." unique_id=777051031]
+position = Vector2(0, 1)
+collision_layer = 8
+collision_mask = 3
+metadata/_edit_group_ = true
+
+[node name="AreaShape2D" type="CollisionShape2D" parent="Area2DAtt" unique_id=1399141879]
+position = Vector2(0, -223.5)
+shape = SubResource("RectangleShape2D_hydhs")
+debug_color = Color(0.93317264, 0.11611164, 0.5753456, 0.41960785)
+
+[connection signal="body_entered" from="Area2DAtt" to="." method="_on_area_2d_body_entered"]

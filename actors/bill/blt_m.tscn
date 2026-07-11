@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cuawyl1ulnohm"]
+
+[ext_resource type="PackedScene" uid="uid://du57mobd2hptu" path="res://abs/A_blt.tscn" id="1_g3g5r"]
+[ext_resource type="Script" uid="uid://cfmjpfa380yfq" path="res://actors/bill/blt_player.gd" id="2_wlkhb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g3g5r"]
+radius = 7.0
+
+[node name="BltM" unique_id=1982857000 instance=ExtResource("1_g3g5r")]
+collision_mask = 3686
+script = ExtResource("2_wlkhb")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=2069242654]
+shape = SubResource("CircleShape2D_g3g5r")
+
+[node name="Sprite2D" parent="." index="2" unique_id=1742864564]
+region_rect = Rect2(288, 128, 20, 20)

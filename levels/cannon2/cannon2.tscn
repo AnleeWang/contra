@@ -1,0 +1,323 @@
+[gd_scene format=3 uid="uid://bsf4jy71ngy27"]
+
+[ext_resource type="Script" uid="uid://bwkd2soe5ours" path="res://levels/cannon2/cannon2.gd" id="1_nc1gx"]
+[ext_resource type="Texture2D" uid="uid://e3phrgdv8cam" path="res://art/cannon_head-Sheet.png" id="3_cvwbr"]
+[ext_resource type="Texture2D" uid="uid://c7uxdegl48wlf" path="res://art/cannon_base2.png" id="3_px3sn"]
+[ext_resource type="Texture2D" uid="uid://k3o0m4gn1735" path="res://art/cannon_base1.png" id="4_w0af7"]
+[ext_resource type="PackedScene" uid="uid://dr6fphiyyaqn" path="res://abs/a_gun.tscn" id="5_p3hj7"]
+[ext_resource type="Script" uid="uid://bcqmehd7egtx5" path="res://levels/cannon2/cannon_gun.gd" id="5_w0af7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8tvs3"]
+radius = 30.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xtvj1"]
+radius = 30.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xicam"]
+radius = 30.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_px3sn"]
+radius = 30.0
+
+[sub_resource type="Gradient" id="Gradient_wde8x"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cvwbr"]
+gradient = SubResource("Gradient_wde8x")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cvwbr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_w0af7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_px3sn")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wde8x"]
+size = Vector2(112, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_px3sn"]
+atlas = ExtResource("3_cvwbr")
+region = Rect2(0, 0, 172, 154)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0af7"]
+atlas = ExtResource("3_cvwbr")
+region = Rect2(172, 0, 172, 154)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ephl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_px3sn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0af7")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_jdaff"]
+resource_name = "Die"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mask/Area2DCannon2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 20)]
+}
+
+[sub_resource type="Animation" id="Animation_do06e"]
+resource_name = "Down"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mask/Area2DCannon2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 20), Vector2(0, 152)]
+}
+
+[sub_resource type="Animation" id="Animation_w0af7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mask/Area2DCannon2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mask/Area2DCannon2/Head:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mask/Area2DCannon2/Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(14.29, 4.96)]
+}
+
+[sub_resource type="Animation" id="Animation_px3sn"]
+resource_name = "ShowUp"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mask/Area2DCannon2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.76666665),
+"transitions": PackedFloat32Array(0.14358735, 1),
+"update": 0,
+"values": [Vector2(0, 152), Vector2(0, 20)]
+}
+
+[sub_resource type="Animation" id="Animation_1ephl"]
+resource_name = "Under"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mask/Area2DCannon2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 152)]
+}
+
+[sub_resource type="Animation" id="Animation_nc1gx"]
+resource_name = "up_30"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mask/Area2DCannon2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mask/Area2DCannon2/Head:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5235987755982988]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("Mask/Area2DCannon2/Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7, -8)]
+}
+
+[sub_resource type="Animation" id="Animation_p3hj7"]
+resource_name = "up_60"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mask/Area2DCannon2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mask/Area2DCannon2/Head:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0471975511965976]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("Mask/Area2DCannon2/Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(17.105, -9.2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w0af7"]
+_data = {
+&"Die": SubResource("Animation_jdaff"),
+&"Down": SubResource("Animation_do06e"),
+&"RESET": SubResource("Animation_w0af7"),
+&"ShowUp": SubResource("Animation_px3sn"),
+&"Under": SubResource("Animation_1ephl"),
+&"up_30": SubResource("Animation_nc1gx"),
+&"up_60": SubResource("Animation_p3hj7")
+}
+
+[node name="Cannon2" type="Node2D" unique_id=959905499]
+script = ExtResource("1_nc1gx")
+
+[node name="Gun_ShapeCasts" type="Node2D" parent="." unique_id=1048909442]
+position = Vector2(15, 33)
+
+[node name="Cast_fd" type="ShapeCast2D" parent="Gun_ShapeCasts" unique_id=804116757]
+modulate = Color(1, 1, 1, 0.137255)
+shape = SubResource("CircleShape2D_8tvs3")
+target_position = Vector2(-1303, -9)
+
+[node name="Cast_up_1" type="ShapeCast2D" parent="Gun_ShapeCasts" unique_id=1751566294]
+modulate = Color(1, 1, 1, 0.137255)
+position = Vector2(0, -20)
+shape = SubResource("CircleShape2D_xtvj1")
+target_position = Vector2(-1300, -422.5)
+
+[node name="Cast_up_2" type="ShapeCast2D" parent="Gun_ShapeCasts" unique_id=1969542325]
+modulate = Color(1, 1, 1, 0.137255)
+shape = SubResource("CircleShape2D_xicam")
+target_position = Vector2(-1127, -761)
+
+[node name="Cast_up_3" type="ShapeCast2D" parent="Gun_ShapeCasts" unique_id=1903702547]
+modulate = Color(1, 1, 1, 0.137255)
+shape = SubResource("CircleShape2D_px3sn")
+target_position = Vector2(-599, -1001)
+
+[node name="Mask" type="Sprite2D" parent="." unique_id=1580743803]
+clip_children = 1
+texture = SubResource("GradientTexture2D_cvwbr")
+region_enabled = true
+region_rect = Rect2(0, 0, 200, 200)
+
+[node name="Area2DCannon2" type="Area2D" parent="Mask" unique_id=1401965469]
+position = Vector2(0, 20)
+collision_layer = 2
+collision_mask = 128
+
+[node name="Base" type="AnimatedSprite2D" parent="Mask/Area2DCannon2" unique_id=1295461575]
+sprite_frames = SubResource("SpriteFrames_cvwbr")
+autoplay = "default"
+frame_progress = 0.33034587
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mask/Area2DCannon2" unique_id=437375439]
+position = Vector2(1, 13)
+shape = SubResource("RectangleShape2D_wde8x")
+debug_color = Color(0.9295049, 0.119582824, 0.58862996, 0.41960785)
+
+[node name="Head" type="AnimatedSprite2D" parent="Mask/Area2DCannon2" unique_id=1541494141]
+position = Vector2(14.29, 4.96)
+sprite_frames = SubResource("SpriteFrames_1ephl")
+autoplay = "default"
+frame_progress = 0.8619659
+offset = Vector2(-16, -8)
+
+[node name="Gun" parent="Mask/Area2DCannon2/Head" unique_id=1627923864 instance=ExtResource("5_p3hj7")]
+position = Vector2(-84.453514, 3.9445724)
+script = ExtResource("5_w0af7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1329538238]
+libraries/ = SubResource("AnimationLibrary_w0af7")
+autoplay = &"Under"
+
+[node name="Snd" type="AudioStreamPlayer2D" parent="." unique_id=2136280357]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

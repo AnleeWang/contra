@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://db63v5m6l5qgq"]
+
+[ext_resource type="PackedScene" uid="uid://balmhfasjump" path="res://abs/3d/a_exp_anim_sprite_3d.tscn" id="1_xvegr"]
+
+[node name="WallExpAnim" instance=ExtResource("1_xvegr")]

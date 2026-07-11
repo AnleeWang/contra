@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://uti8royxulm7"]
+
+[ext_resource type="Script" uid="uid://dsb5y3uhhy6jx" path="res://levels/e_1_door.gd" id="1_wrals"]
+
+[sub_resource type="Gradient" id="Gradient_k3ioc"]
+colors = PackedColorArray(0, 0.42745098, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wrals"]
+gradient = SubResource("Gradient_k3ioc")
+height = 120
+fill_to = Vector2(0, 1)
+
+[node name="E1Door" type="Node2D" unique_id=1156230281]
+script = ExtResource("1_wrals")
+
+[node name="Timer" type="Timer" parent="." unique_id=341385084]
+wait_time = 3.0
+autostart = true
+
+[node name="sp" type="Sprite2D" parent="." unique_id=189446935]
+scale = Vector2(0.74999994, 0.85)
+texture = SubResource("GradientTexture2D_wrals")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

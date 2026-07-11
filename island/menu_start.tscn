@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cg845l3p26st0"]
+
+[ext_resource type="PackedScene" uid="uid://d0v8m6jgyibvk" path="res://ui/menu_start.tscn" id="1_d4pi1"]
+[ext_resource type="Theme" uid="uid://cp37jqxdugofn" path="res://ui/ui.tres" id="2_er2rq"]
+
+[node name="MenuStart" unique_id=627173565 instance=ExtResource("1_d4pi1")]
+
+[node name="Label" parent="." index="0" unique_id=209737011]
+offset_left = 499.0
+offset_top = 285.0
+offset_right = 764.0
+offset_bottom = 398.0
+theme = ExtResource("2_er2rq")
+theme_override_font_sizes/font_size = 55
+text = "冒险岛"
+
+[node name="Button" parent="." index="1" unique_id=461469543]
+offset_left = 513.0
+offset_top = 604.0
+offset_right = 644.0
+offset_bottom = 654.0

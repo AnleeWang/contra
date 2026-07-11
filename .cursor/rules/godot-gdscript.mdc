@@ -1,0 +1,50 @@
+---
+description: GDScript 编码与物理碰撞约定
+globs: **/*.gd
+alwaysApply: false
+---
+
+# GDScript 约定
+
+## 风格
+
+- 匹配周围代码：命名、`@onready`、`preload`、信号连接方式
+- 可调参数用 `@export var`，中文 `##` 注释说明用途
+- 最小 diff；不改动无关文件；不擅自加 markdown 文档
+
+## 物理层（project.godot）
+
+| Layer | 名称 |
+|-------|------|
+| 1 | player |
+| 2 | enemy |
+| 5 | block（TileMap、Blk） |
+| 8 | blt |
+
+## 碰撞规则
+
+- **不要**随意改 `e_1.tscn` 等已有 `collision_layer` / `collision_mask`，除非用户明确要求
+- `e_1` 的 walk 动画带 collision 轨道；避免用 `change_state(WALK)` 覆盖用户配置时，可只设 `current_state`
+- 需要穿门/穿敌：用 `add_collision_exception_with()`，双向建立例外
+- 子弹与敌人同占 block 层时，仅靠 mask 不够，必须加 collision exception
+- 在 `body_entered` 等物理回调里改 `freeze`/`queue_free`：用 `call_deferred()`
+
+## 常见模式
+
+```gdscript
+# 玩家靠近触发（只触发一次）
+if not _started and player.global_position.distance_to(node.global_position) <= node.trigger_radius:
+    _started = true
+    node.start_xxx()
+
+# AnimatedSprite2D 指定帧触发
+cannon_anim.frame_changed.connect(func(): ...)
+
+# 生成敌人后注册碰撞例外
+BltRigidBoss7Script.ignore_enemy(e1)
+```
+
+## 动画
+
+- Boss/门/炮：`open` → 停顿 → `close` → 停顿，循环用 `await animation_finished` + `create_timer`
+- 出生点用 `Marker2D`，export 时间/距离到场景根节点
